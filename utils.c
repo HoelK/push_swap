@@ -6,7 +6,7 @@
 /*   By: dedavid <dedavid@student.42lehavre.fr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:22:33 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/02 13:24:39 by dedavid          ###   ########.fr       */
+/*   Updated: 2025/11/02 13:40:52 by dedavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int     ft_isdigit(int character)
         return (1);
 }
 
-static int      str_is_int(const char *str, size_t negative)
+int      str_is_int(const char *str, size_t negative)
 {
         size_t  i;
         size_t  size;
