@@ -33,19 +33,42 @@ int	check_arg(char **argv)
 
 stacks_t	*init_stacks(int argc, char **argv)
 {
+	int	i;
 	stacks_t	*stacks;
 
+	i = 0;
 	stacks = malloc(sizeof(stacks_t));
-	stacks->a = malloc(sizeof(int) * argc - 2);
-	stacks->b = malloc(sizeof(int) * argc - 2);
-	stacks->sizea = 0;
-	stacks->sizeb = 0;
+	stacks->a = malloc(sizeof(int) * (argc - 1));
+	while (i < argc - 1)
+		stacks->a[i++] = -1;
+	i = 0;
+	stacks->b = malloc(sizeof(int) * (argc - 1));
+	while (i < argc - 1)
+		stacks->b[i++] = -1;
+	stacks->sizea = argc - 1;
+	stacks->sizeb = argc - 1;
 	
 	return (stacks);
 }
 
-void	print_stacks()
+void	print_stacks(stacks_t *stacks)
 {
+	int	i;
+
+	i = 0;
+	while (i < stacks->sizea || i < stacks->sizeb)
+	{
+		printf("%d	|	%d\n", stacks->a[i], stacks->b[i]);
+		i++;
+	}
+	printf ("a	|	b\n");
+}
+
+void	free_stacks(stacks_t *stacks)
+{
+	free(stacks->a);
+	free(stacks->b);
+	free(stacks);
 }
 
 int	main(int argc, char **argv)
@@ -55,7 +78,8 @@ int	main(int argc, char **argv)
 	if (argc <= 2 || !check_arg(argv))
 		return (0);
 	stacks = init_stacks(argc, argv);
-	free_stack();
+	print_stacks(stacks);
+	free_stacks(stacks);
 	//stack_a = parse_arg(argv);
 	//sort_stacks(stack_a);
 	printf("ok");
