@@ -6,13 +6,13 @@
 /*   By: dedavid <dedavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 14:10:59 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/02 16:05:26 by hkeromne         ###   ########.fr       */
+/*   Updated: 2025/11/02 16:17:44 by dedavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pusha(stacks_t *stacks)
+void	pa(stacks_t *stacks)
 {
 	if (stacks->sizeb == 0)
 		return ;
@@ -20,9 +20,10 @@ void	pusha(stacks_t *stacks)
 	stacks->a[stacks->sizea] = stacks->b[stacks->sizeb];
 	stacks->b[stacks->sizeb] = -1;
 	stacks->sizeb -= 1;
+	file_add("pa");
 }
 
-void	pushb(stacks_t *stacks)
+void	pb(stacks_t *stacks)
 {
 	if (stacks->sizea == 0)
 		return ;
@@ -30,4 +31,5 @@ void	pushb(stacks_t *stacks)
 	stacks->b[stacks->sizeb] = stacks->a[stacks->sizea];
 	stacks->a[stacks->sizea] = -1;
 	stacks->sizea -= 1;
+	file_add("pb");
 }

@@ -6,7 +6,7 @@
 /*   By: dedavid <dedavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 14:25:58 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/02 16:04:32 by hkeromne         ###   ########.fr       */
+/*   Updated: 2025/11/02 16:18:19 by dedavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ra(stacks_t *stacks)
 		i++;
 	}
 	stack[0] = temp;
+	file_add("ra");
 }
 
 void	rb(stacks_t *stacks)
@@ -48,10 +49,12 @@ void	rb(stacks_t *stacks)
 		i++;
 	}
 	stack[0] = temp;
+	file_add("rb");
 }
 
 void	rr(stacks_t *stacks)
 {
 	ra(stacks);
 	rb(stacks);
+	file_add("rr");
 }
