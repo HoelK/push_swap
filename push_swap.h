@@ -13,7 +13,8 @@ typedef struct stacks_s
 
 //utils
 int	ft_isdigit(int character);
-int	str_is_int(const char *str, size_t negative);
+int	str_is_int(const char *str);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 
 //operation
 void	swap(int *stack, int size);

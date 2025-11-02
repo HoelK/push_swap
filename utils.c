@@ -6,7 +6,7 @@
 /*   By: dedavid <dedavid@student.42lehavre.fr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:22:33 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/02 14:09:29 by hkeromne         ###   ########.fr       */
+/*   Updated: 2025/11/02 14:32:35 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,19 @@ int     ft_isdigit(int character)
         return (1);
 }
 
-int      str_is_int(const char *str, size_t negative)
+int      str_is_int(const char *str)
 {
         size_t  i;
         size_t  size;
+	size_t	negative;
 
         size = 0;
+	negative = 0;
+	if (str[0] == '-')
+	{
+		negative = 1;
+		str = str + 1;
+	}
         while (ft_isdigit(str[size]))
                 size++;
         if (size > 10)
@@ -39,4 +46,20 @@ int      str_is_int(const char *str, size_t negative)
                 while (i < 11 && ft_strncmp(str, "2147483648", i) <= 0)
                         i++;
         return (i - 1 == size);
+}
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	if (!n || (!s1 && !s2))
+		return (0);
+	while (i < n && (s1[i] || s2[i]))
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return ((unsigned char)s1[i - 1] - (unsigned char)s2[i - 1]);
 }
