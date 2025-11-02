@@ -3,6 +3,14 @@
 
 #include <stddef.h>
 
+typedef struct stacks_s
+{
+	int	*a;
+	int	*b;
+	int	sizea;
+	int	sizeb;
+}	stacks_t;
+
 //utils
 int	ft_isdigit(int character);
 int	str_is_int(const char *str, size_t negative);
