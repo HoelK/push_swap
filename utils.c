@@ -6,9 +6,11 @@
 /*   By: dedavid <dedavid@student.42lehavre.fr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:22:33 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/02 13:40:52 by dedavid          ###   ########.fr       */
+/*   Updated: 2025/11/02 14:09:29 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 int     ft_isdigit(int character)
 {
