@@ -6,15 +6,17 @@
 /*   By: dedavid <dedavid@student.42lehavre.fr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:32:51 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/02 14:02:50 by dedavid          ###   ########.fr       */
+/*   Updated: 2025/11/02 16:02:16 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 void	swap(int *stack, int size)
 {
 	int	temp;
 
-	if (size->a < 2)
+	if (size < 2)
 		return ;
 	temp = stack[size];
 	stack[size] = stack[size - 1];

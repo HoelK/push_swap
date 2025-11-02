@@ -23,6 +23,7 @@ stacks_t	*init_stacks(int argc, char **argv)
 		stacks->b[i++] = -1;
 	stacks->sizea = argc - 1;
 	stacks->sizeb = argc - 1;
+	(void)argv;	//fill struct with argv
 	return (stacks);
 }
 

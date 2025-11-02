@@ -21,14 +21,14 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n);
 void	sa(stacks_t *stacks);
 void	sb(stacks_t *stacks);
 void	ss(stacks_t *stacks);
-void	ra(stacks_t stacks);
-void	rb(stacks_t stacks);
-void	rr(stacks_t stacks);
-void	rra(stacks_t stacks);
-void	rrb(stacks_t stacks);
-void	rrr(stacks_t stacks);
-void	pusha(stacks_t stacks);
-void	pushb(stacks_t stacks);
+void	ra(stacks_t *stacks);
+void	rb(stacks_t *stacks);
+void	rr(stacks_t *stacks);
+void	rra(stacks_t *stacks);
+void	rrb(stacks_t *stacks);
+void	rrr(stacks_t *stacks);
+void	pusha(stacks_t *stacks);
+void	pushb(stacks_t *stacks);
 void	swap(int *stack, int size);
 
 //struct
@@ -41,5 +41,10 @@ int	ft_strisdigit(char *str);
 
 //debug - delete before final push
 void	print_stacks(stacks_t *stacks); // contains printf forbidden func
+
+void file_add(char *s)
+{
+	(void)s;
+}
 
 #endif

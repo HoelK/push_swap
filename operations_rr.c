@@ -6,11 +6,13 @@
 /*   By: dedavid <dedavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 14:37:36 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/02 14:40:16 by dedavid          ###   ########.fr       */
+/*   Updated: 2025/11/02 16:04:56 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rra(stacks_t stacks)
+#include "push_swap.h"
+
+void	rra(stacks_t *stacks)
 {
 	int	i;
 	int	size;
@@ -29,7 +31,7 @@ void	rra(stacks_t stacks)
 	stack[size] = temp;
 }
 
-void	rrb(stacks_t stacks)
+void	rrb(stacks_t *stacks)
 {
 	int	i;
 	int	size;
@@ -48,7 +50,7 @@ void	rrb(stacks_t stacks)
 	stack[size] = temp;
 }
 
-void	rrr(stacks_t stacks)
+void	rrr(stacks_t *stacks)
 {
 	rra(stacks);
 	rrb(stacks);
