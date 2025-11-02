@@ -6,7 +6,7 @@
 /*   By: dedavid <dedavid@student.42lehavre.fr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:22:33 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/02 14:32:35 by hkeromne         ###   ########.fr       */
+/*   Updated: 2025/11/02 16:16:16 by dedavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,11 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	}
 	return ((unsigned char)s1[i - 1] - (unsigned char)s2[i - 1]);
+}
+
+void	file_add(char *str)
+{
+	static fd = open("buffer", O_CREAT | O_WRONLY | O_TRUNC);
+	write(fd, str, 3);
+	write(fd, "\n", 1);
 }
