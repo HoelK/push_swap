@@ -43,4 +43,3 @@ void	free_stacks(stacks_t *stacks)
 	free(stacks->b);
 	free(stacks);
 }
-

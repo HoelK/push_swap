@@ -6,7 +6,7 @@
 /*   By: dedavid <dedavid@student.42lehavre.fr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:22:33 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/02 16:24:27 by hkeromne         ###   ########.fr       */
+/*   Updated: 2025/11/02 16:31:53 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 void	file_add(char *str)
 {
-	static int fd = open("buffer", O_CREAT | O_WRONLY | O_TRUNC);
+	int fd = open("buffer", O_CREAT | O_WRONLY | O_TRUNC);
 	write(fd, str, 3);
 	write(fd, "\n", 1);
 }

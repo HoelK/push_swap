@@ -19,6 +19,7 @@ int	ft_isdigit(int character);
 int	str_is_int(const char *str);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 int	ft_atoi(const char *nptr);
+void	file_add(char *str);
 
 //operation
 void	sa(stacks_t *stacks);
