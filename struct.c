@@ -23,8 +23,18 @@ stacks_t	*init_stacks(int argc, char **argv)
 		stacks->b[i++] = -1;
 	stacks->sizea = argc - 1;
 	stacks->sizeb = argc - 1;
-	(void)argv;	//fill struct with argv
+	stacks->a = fill_stack(stacks->a, argv);
 	return (stacks);
+}
+
+int	*fill_stack(int *stack, char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[++i] != NULL)
+		stack[i - 1] = ft_atoi(argv[i]);
+	return (stack);
 }
 
 void	free_stacks(stacks_t *stacks)

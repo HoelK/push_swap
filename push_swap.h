@@ -3,6 +3,8 @@
 
 #include <stddef.h>
 #include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 typedef struct stacks_s
 {
@@ -16,6 +18,7 @@ typedef struct stacks_s
 int	ft_isdigit(int character);
 int	str_is_int(const char *str);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int	ft_atoi(const char *nptr);
 
 //operation
 void	sa(stacks_t *stacks);
@@ -34,6 +37,7 @@ void	swap(int *stack, int size);
 //struct
 stacks_t	*init_stacks(int argc, char **argv);
 void	free_stacks(stacks_t *stacks);
+int	*fill_stack(int *stack, char **argv);
 
 //parse
 int	check_arg(char **argv);
@@ -41,10 +45,5 @@ int	ft_strisdigit(char *str);
 
 //debug - delete before final push
 void	print_stacks(stacks_t *stacks); // contains printf forbidden func
-
-void file_add(char *s)
-{
-	(void)s;
-}
 
 #endif
