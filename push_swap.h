@@ -49,4 +49,9 @@ int	*int_to_index(int *stack, int size);
 //debug - delete before final push
 void	print_stacks(stacks_t *stacks); // contains printf forbidden func
 
+//solve
+int	is_sorted(stacks_t *stacks);
+int	get_closest(stacks_t *stacks, int lower, int higher);
+void	solve(stacks_t *stacks);
+
 #endif

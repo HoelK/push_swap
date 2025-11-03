@@ -6,13 +6,13 @@
 /*   By: dedavid <dedavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 16:27:59 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/03 14:54:10 by dedavid          ###   ########.fr       */
+/*   Updated: 2025/11/03 15:28:55 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.c"
 
-int	is_sorted(stacks_t stacks)
+int	is_sorted(stacks_t *stacks)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	is_sorted(stacks_t stacks)
 	return (1);
 }
 
-int	get_closest(stacks_t stacks, int lower, int higher)
+int	get_closest(stacks_t *stacks, int lower, int higher)
 {
 	int	higherI;
 	int	lowerI;
@@ -43,7 +43,7 @@ int	get_closest(stacks_t stacks, int lower, int higher)
 			higherI = i;
 		i++;
 	}
-	if (stacks->sizeb - higerI < higherI)
+	if (stacks->sizeb - higherI < higherI)
 		temp = stacks->sizeb - higherI;
 	if (stacks->sizeb - lowerI < lowerI)
 		temp2 =  stacks->sizeb - lowerI;
@@ -52,7 +52,7 @@ int	get_closest(stacks_t stacks, int lower, int higher)
 	return (lowerI);
 }
 
-void	solve(stacks_t stacks)
+void	solve(stacks_t *stacks)
 {
 	static int	middle = stacks->sizea / 2;
 	int	num;
@@ -63,7 +63,7 @@ void	solve(stacks_t stacks)
 	higher = middle + 1;
 	while (!is_sorted(stacks))
 	{
-		num = stacks->a[stacks->sizea] != middle
+		num = stacks->a[stacks->sizea] != middle;
 		if (num != lower || num != middle || num != middle)
 		{
 			pb(stacks);
