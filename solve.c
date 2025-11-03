@@ -6,7 +6,7 @@
 /*   By: dedavid <dedavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 16:27:59 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/03 14:41:48 by dedavid          ###   ########.fr       */
+/*   Updated: 2025/11/03 14:54:10 by dedavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,32 @@ int	is_sorted(stacks_t stacks)
 		i++;
 	}
 	return (1);
+}
+
+int	get_closest(stacks_t stacks, int lower, int higher)
+{
+	int	higherI;
+	int	lowerI;
+	int	i;
+	int	temp;
+	int	temp2;
+
+	i = 0;
+	while (i <= stacks->sizeb)
+	{
+		if (stacks->b[i] == lower)
+			lowerI = i;
+		if (stacks->b[i] == higher)
+			higherI = i;
+		i++;
+	}
+	if (stacks->sizeb - higerI < higherI)
+		temp = stacks->sizeb - higherI;
+	if (stacks->sizeb - lowerI < lowerI)
+		temp2 =  stacks->sizeb - lowerI;
+	if (temp < temp2)
+		return (higherI);
+	return (lowerI);
 }
 
 void	solve(stacks_t stacks)
@@ -49,7 +75,7 @@ void	solve(stacks_t stacks)
 	}
 	while (!is_sorted(stacks) && stacks->sizeb != 0)
 	{
-		index = get_closest(lower, higher);
+		index = get_closest(stacks, lower, higher);
 
 		way = stacks->sizeb - index < index;
 		while (stacks->b[0] != lower && stacks->b[0] != higher)
