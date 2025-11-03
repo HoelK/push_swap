@@ -8,6 +8,8 @@ int	main(int argc, char **argv)
 		return (0);
 	stacks = init_stacks(argc, argv);
 	print_stacks(stacks);
+	stacks->a = int_to_index(stacks->a, stacks->sizea);
+	print_stacks(stacks);
 	free_stacks(stacks);
 	//stack_a = parse_arg(argv);
 	//sort_stacks(stack_a);

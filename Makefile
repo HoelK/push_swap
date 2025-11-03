@@ -1,8 +1,8 @@
 
 CC=cc
-FLAGS=-Wall -Werror -Wextra
-SRCS=push_swap.c parse.c struct.c utils.c operations_s.c operations_p.c operations_r.c operations_rr.c
-OBJS=push_swap.o parse.o struct.o utils.o operations_s.o operations_p.o operations_r.o operations_rr.o
+FLAGS=-Wall -Werror -Wextra -g
+SRCS=push_swap.c parse.c struct.c utils.c operations_s.c operations_p.c operations_r.c operations_rr.c int_to_index.c
+OBJS=push_swap.o parse.o struct.o utils.o operations_s.o operations_p.o operations_r.o operations_rr.o int_to_index.o
 DEBUG_F=debug.o
 NAME=push_swap
 

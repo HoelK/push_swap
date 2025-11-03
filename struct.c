@@ -21,8 +21,8 @@ stacks_t	*init_stacks(int argc, char **argv)
 	}
 	while (i < argc - 1)
 		stacks->b[i++] = -1;
-	stacks->sizea = 0;
-	stacks->sizeb = argc - 1;
+	stacks->sizea = argc - 1;
+	stacks->sizeb = 0;
 	stacks->a = fill_stack(stacks->a, argv);
 	return (stacks);
 }

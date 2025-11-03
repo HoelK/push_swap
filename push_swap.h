@@ -1,6 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+#include <limits.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -43,6 +44,7 @@ int	*fill_stack(int *stack, char **argv);
 //parse
 int	check_arg(char **argv);
 int	ft_strisdigit(char *str);
+int	*int_to_index(int *stack, int size);
 
 //debug - delete before final push
 void	print_stacks(stacks_t *stacks); // contains printf forbidden func
