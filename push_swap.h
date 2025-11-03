@@ -32,8 +32,8 @@ void	rr(stacks_t *stacks);
 void	rra(stacks_t *stacks);
 void	rrb(stacks_t *stacks);
 void	rrr(stacks_t *stacks);
-void	pusha(stacks_t *stacks);
-void	pushb(stacks_t *stacks);
+void	pa(stacks_t *stacks);
+void	pb(stacks_t *stacks);
 void	swap(int *stack, int size);
 
 //struct

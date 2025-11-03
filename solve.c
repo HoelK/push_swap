@@ -6,7 +6,7 @@
 /*   By: dedavid <dedavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 16:27:59 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/03 15:28:55 by hkeromne         ###   ########.fr       */
+/*   Updated: 2025/11/03 15:34:21 by dedavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ int	get_closest(stacks_t *stacks, int lower, int higher)
 			higherI = i;
 		i++;
 	}
+	temp = higherI;
 	if (stacks->sizeb - higherI < higherI)
 		temp = stacks->sizeb - higherI;
+	temp2 = lowerI;
 	if (stacks->sizeb - lowerI < lowerI)
 		temp2 =  stacks->sizeb - lowerI;
 	if (temp < temp2)
@@ -54,10 +56,12 @@ int	get_closest(stacks_t *stacks, int lower, int higher)
 
 void	solve(stacks_t *stacks)
 {
-	static int	middle = stacks->sizea / 2;
+	int	middle = stacks->sizea / 2;
 	int	num;
 	int	lower;
 	int	higher;
+	int	way;
+	int	index;
 
 	lower = middle - 1;
 	higher = middle + 1;
