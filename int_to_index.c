@@ -1,5 +1,25 @@
 #include "push_swap.h"
 
+static int	get_min(int *stack, int *new_stack, int size)
+{
+	int	i;
+	int	min;
+
+	i = 0;
+	min = 0;
+	while (new_stack[i] != -1)
+		i++;
+	min = i;
+	i = 0;
+	while (i < size)
+	{
+		if (stack[i] < stack[min] && new_stack[i] == -1)
+			min = i;
+		i++;
+	}
+	return (min);
+}
+
 int	*int_to_index(int *stack, int size)
 {
 
@@ -16,19 +36,9 @@ int	*int_to_index(int *stack, int size)
 		return (free(stack), NULL);
 	while (i < size)
 		new_stack[i++] = -1;
-	i = 0;
-	while (i < size)
-	{
-		while (j < size)
-		{
-			if (stack[j] < stack[min] && new_stack[j] == -1)
-				min = j;
-			j++;
-		}
-		new_stack[min] = i;
-		min = ++i;
-		j = 0;
-	}
+	i = -1;
+	while (++i < size)
+		new_stack[get_min(stack, new_stack, size)] = i;
 	free(stack);
 	return (new_stack);
 }

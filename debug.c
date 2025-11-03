@@ -11,6 +11,6 @@ void	print_stacks(stacks_t *stacks)
 		printf("%d	|	%d\n", stacks->a[i], stacks->b[i]);
 		i++;
 	}
-	printf ("a	|	b\n");
+	printf ("a	|	b\n\n");
 }
 
