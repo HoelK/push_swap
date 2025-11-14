@@ -6,7 +6,7 @@
 /*   By: dedavid <dedavid@student.42lehavre.fr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:32:51 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/02 16:28:51 by hkeromne         ###   ########.fr       */
+/*   Updated: 2025/11/14 10:57:10 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ void	swap(int *stack, int size)
 	stack[size - 1] = temp;
 }
 
-void	sa(stacks_t *stacks)
+void	sa(t_allstacks *stacks)
 {
-	swap(stacks->a, stacks->sizea);
+	swap(stacks->a.tab, stacks->a.size);
 	file_add("sa");
 }
 
-void	sb(stacks_t *stacks)
+void	sb(t_allstacks *stacks)
 {
-	swap(stacks->b, stacks->sizeb);
+	swap(stacks->b.tab, stacks->b.size);
 	file_add("sb");
 }
 
-void	ss(stacks_t *stacks)
+void	ss(t_allstacks *stacks)
 {
 	sa(stacks);
 	sb(stacks);

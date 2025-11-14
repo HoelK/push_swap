@@ -6,30 +6,30 @@
 /*   By: dedavid <dedavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 14:10:59 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/02 16:17:44 by dedavid          ###   ########.fr       */
+/*   Updated: 2025/11/14 12:36:31 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(stacks_t *stacks)
+void	pa(t_allstacks *stacks)
 {
-	if (stacks->sizeb == 0)
+	if (stacks->b.size == 0)
 		return ;
-	stacks->sizea += 1;
-	stacks->a[stacks->sizea] = stacks->b[stacks->sizeb];
-	stacks->b[stacks->sizeb] = -1;
-	stacks->sizeb -= 1;
+	stacks->a.size += 1;
+	stacks->a.tab[stacks->a.size - 1] = stacks->b.tab[stacks->b.size - 1];
+	stacks->b.tab[stacks->b.size] = -1;
+	stacks->b.size -= 1;
 	file_add("pa");
 }
 
-void	pb(stacks_t *stacks)
+void	pb(t_allstacks *stacks)
 {
-	if (stacks->sizea == 0)
+	if (stacks->a.size == 0)
 		return ;
-	stacks->sizeb += 1;
-	stacks->b[stacks->sizeb] = stacks->a[stacks->sizea];
-	stacks->a[stacks->sizea] = -1;
-	stacks->sizea -= 1;
+	stacks->b.size += 1;
+	stacks->b.tab[stacks->b.size - 1] = stacks->a.tab[stacks->a.size - 1];
+	stacks->a.tab[stacks->a.size] = -1;
+	stacks->a.size -= 1;
 	file_add("pb");
 }

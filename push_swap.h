@@ -1,57 +1,65 @@
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include <limits.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
 
-#include <limits.h>
-#include <stddef.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-
-typedef struct stacks_s
+typedef struct s_stacks
 {
-	int	*a;
-	int	*b;
-	int	sizea;
-	int	sizeb;
-}	stacks_t;
+	int	size;
+	int	*tab;
+}	t_stacks;
 
-//utils
-int	ft_isdigit(int character);
-int	str_is_int(const char *str);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
-int	ft_atoi(const char *nptr);
-void	file_add(char *str);
+typedef struct s_allstacks
+{
+	t_stacks a;
+	t_stacks b;
+}	t_allstacks;
+
+int		ft_isdigit(int c);
+char	**ft_split(const char *str, char c);
+void	free_double_str(char **str);
+void	print_int_tab(int *tab, int size);
+void	kill_safe(int *tab, char **to_free);
+void	print_args(char **args);
+char	**sort_args(int argc, char **argv);
+char	**dup_args(int argc, char **args);
+char	**get_args(int argc, char **argv);
+int		count_args(char **args);
+long	ft_atoi(char *s);
+int		check_tab(int *tab, int size);
+int		*args_to_int_tab(char **args);
+t_allstacks	parse_args(int argc, char **argv);
+size_t	ft_strlen(const char *s);
+char	*ft_strdup(const char *s);
+//void	print_stack(t_stack stack);
 
 //operation
-void	sa(stacks_t *stacks);
-void	sb(stacks_t *stacks);
-void	ss(stacks_t *stacks);
-void	ra(stacks_t *stacks);
-void	rb(stacks_t *stacks);
-void	rr(stacks_t *stacks);
-void	rra(stacks_t *stacks);
-void	rrb(stacks_t *stacks);
-void	rrr(stacks_t *stacks);
-void	pa(stacks_t *stacks);
-void	pb(stacks_t *stacks);
-void	swap(int *stack, int size);
+void    sa(t_allstacks *stacks);
+void    sb(t_allstacks *stacks);
+void    ss(t_allstacks *stacks);
+void    ra(t_allstacks *stacks);
+void    rb(t_allstacks *stacks);
+void    rr(t_allstacks *stacks);
+void    rra(t_allstacks *stacks);
+void    rrb(t_allstacks *stacks);
+void    rrr(t_allstacks *stacks);
+void    pa(t_allstacks *stacks);
+void    pb(t_allstacks *stacks);
+void    pusha(t_allstacks *stacks);
+void    pushb(t_allstacks *stacks);
+void    swap(int *stack, int size);
 
-//struct
-stacks_t	*init_stacks(int argc, char **argv);
-void	free_stacks(stacks_t *stacks);
-int	*fill_stack(int *stack, char **argv);
+//int to index
+int			*int_to_index(int *stack, int size);
+void		file_add(char *str);
 
-//parse
-int	check_arg(char **argv);
-int	ft_strisdigit(char *str);
-int	*int_to_index(int *stack, int size);
+//debug
+void	print_stack(t_allstacks stack);
 
-//debug - delete before final push
-void	print_stacks(stacks_t *stacks); // contains printf forbidden func
-
-//solve
-int	is_sorted(stacks_t *stacks);
-int	get_closest(stacks_t *stacks, int lower, int higher);
-void	solve(stacks_t *stacks);
+void	solve(t_allstacks *stacks);
 
 #endif

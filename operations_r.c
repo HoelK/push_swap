@@ -6,21 +6,21 @@
 /*   By: dedavid <dedavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 14:25:58 by dedavid           #+#    #+#             */
-/*   Updated: 2025/11/02 16:18:19 by dedavid          ###   ########.fr       */
+/*   Updated: 2025/11/14 10:57:14 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(stacks_t *stacks)
+void	ra(t_allstacks *stacks)
 {
 	int	i;
 	int	size;
 	int	*stack;
 	int	temp;
 
-	size = stacks->sizea;
-	stack = stacks->a;
+	size = stacks->a.size - 1;
+	stack = stacks->a.tab;
 	temp = stack[size];
 	i = 0;
 	while (i < size)
@@ -32,15 +32,15 @@ void	ra(stacks_t *stacks)
 	file_add("ra");
 }
 
-void	rb(stacks_t *stacks)
+void	rb(t_allstacks *stacks)
 {
 	int	i;
 	int	size;
-	int	*stack;
 	int	temp;
+	int	*stack;
 
-	size = stacks->sizeb;
-	stack = stacks->b;
+	size = stacks->b.size;
+	stack = stacks->b.tab;
 	temp = stack[size];
 	i = 0;
 	while (i < size)
@@ -52,7 +52,7 @@ void	rb(stacks_t *stacks)
 	file_add("rb");
 }
 
-void	rr(stacks_t *stacks)
+void	rr(t_allstacks *stacks)
 {
 	ra(stacks);
 	rb(stacks);

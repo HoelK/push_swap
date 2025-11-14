@@ -2,16 +2,14 @@
 
 int	main(int argc, char **argv)
 {
-	stacks_t	*stacks;
+	t_allstacks	stacks;
 
-	if (argc <= 2 || !check_arg(argv))
+	if (argc < 2)
 		return (0);
-	stacks = init_stacks(argc, argv);
-	print_stacks(stacks);
-	stacks->a = int_to_index(stacks->a, stacks->sizea);
-	print_stacks(stacks);
-	free_stacks(stacks);
-	//stack_a = parse_arg(argv);
-	//sort_stacks(stack_a);
-	return (0);
+	stacks = parse_args(argc, argv);
+	stacks.a.tab = int_to_index(stacks.a.tab, stacks.a.size);
+	solve(&stacks);
+	free (stacks.a.tab);
+	free (stacks.b.tab);
 }
+
