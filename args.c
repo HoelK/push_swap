@@ -1,12 +1,22 @@
 #include "push_swap.h"
 
+void	kill_prog()
+{
+	write(1, "Error", 5);
+	exit(0);
+}
+
 char	**sort_args(int argc, char **argv)
 {
 	int	i;
 
 	i = 0;
 	while (++i < argc)
+	{
+		if (!argv[i][0])
+			kill_prog();
 		argv[i - 1] = argv[i];
+	}
 	argv[i - 1] = NULL;
 	return (argv);
 }

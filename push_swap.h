@@ -1,4 +1,3 @@
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <limits.h>
@@ -6,6 +5,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# define ABS(Value) Value * (((Value < 0) * -1) + (Value > 0))
 
 typedef struct s_stacks
 {
@@ -35,7 +35,6 @@ int		*args_to_int_tab(char **args);
 t_allstacks	parse_args(int argc, char **argv);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s);
-//void	print_stack(t_stack stack);
 
 //operation
 void    sa(t_allstacks *stacks);
@@ -57,9 +56,24 @@ void    swap(int *stack, int size);
 int			*int_to_index(int *stack, int size);
 void		file_add(char *str);
 
+//sort
+int		ft_issorted(t_allstacks *stacks);
+
 //debug
-void	print_stack(t_allstacks stack);
+void	print_stack(t_allstacks *stack);
 
 void	solve(t_allstacks *stacks);
+
+//Args
+void	check_args(int argc, char **argv);
+int	check_dup(t_allstacks *stacks);
+void	kill_prog();
+
+//sort utils
+int		ft_issorted(t_allstacks *stacks);
+int		get_pos(int *stack, int size, int num);
+
+//solve
+void	sort_a(t_allstacks *stacks);
 
 #endif
