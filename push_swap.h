@@ -6,7 +6,7 @@
 /*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 01:05:06 by hkeromne          #+#    #+#             */
-/*   Updated: 2025/11/20 02:12:29 by hkeromne         ###   ########.fr       */
+/*   Updated: 2025/11/20 06:33:09 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void		solve(t_allstacks *stacks);
 //Sort Utils
 void		rotate_a(t_allstacks *stacks);
 int			ft_isordered(int *tab, int size);
-int			ft_issorted(t_allstacks *stacks);
 int			smallest_value(int *tab, int size);
 int			get_pos(int *stack, int size, int num);
 int			len_to_top(int *tab, int size, int num);
@@ -91,6 +90,7 @@ int			get_pos(int *stack, int size, int num);
 
 //Utils
 long		ft_atoi(char *s);
+int			ft_isnum(char *s);
 int			ft_isdigit(int c);
 size_t		ft_strlen(const char *s);
 char		**ft_split(const char *str, char c);

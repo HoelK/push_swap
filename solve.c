@@ -6,7 +6,7 @@
 /*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 00:46:23 by hkeromne          #+#    #+#             */
-/*   Updated: 2025/11/20 02:18:15 by hkeromne         ###   ########.fr       */
+/*   Updated: 2025/11/20 06:48:08 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,23 @@
 
 void	three_sort(t_allstacks *stacks)
 {
-	while (stacks->a.tab[stacks->a.size - 1] != 0)
-		ra(stacks);
-	if (!ft_issorted(stacks))
-	{
-		pb(stacks);
+	int	a;
+	int	b;
+	int	c;
+
+	a = stacks->a.tab[2];
+	b = stacks->a.tab[1];
+	c = stacks->a.tab[0];
+	if (a > b && a < c && b < c)
 		sa(stacks);
-		pa(stacks);
-	}
+	else if (a > b && a > c && b < c)
+		ra(stacks);
+	else if (a < b && a > c && b > c)
+		rra(stacks);
+	else if (a > b && a > c && b > c)
+		(sa(stacks), rra(stacks));
+	else if (a < b && a < c && b > c)
+		(sa(stacks), ra(stacks));
 }
 
 void	five_sort(t_allstacks *stacks)
@@ -36,7 +45,9 @@ void	five_sort(t_allstacks *stacks)
 
 void	solve(t_allstacks *stacks)
 {
-	if (stacks->a.size == 3)
+	if (stacks->a.size == 2)
+		sa(stacks);
+	else if (stacks->a.size == 3)
 		three_sort(stacks);
 	else if (stacks->a.size <= 5)
 		five_sort(stacks);

@@ -1,5 +1,5 @@
 CC=cc
-FLAGS=-Wall -Werror -Wextra -g
+FLAGS=-Wall -Werror -Wextra
 
 SRCS=ft_strnstr.c ft_split.c ft_isdigit.c ft_strlen.c args.c parser.c int_to_index.c utils.c sort_utils.c get_next_line.c get_next_line_utils.c safety.c
 MAIN_C=operations_s.c operations_p.c operations_rr.c operations_r.c solve.c sort_utils2.c sort_utils3.c push_swap.c

@@ -6,7 +6,7 @@
 /*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 01:02:24 by hkeromne          #+#    #+#             */
-/*   Updated: 2025/11/20 01:55:39 by hkeromne         ###   ########.fr       */
+/*   Updated: 2025/11/20 06:33:34 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	*args_to_int_tab(char **args)
 	while (args[i])
 	{
 		num = ft_atoi(args[i]);
-		if (num < INT_MIN || num > INT_MAX)
+		if (num < INT_MIN || num > INT_MAX || !ft_isnum(args[i]))
 			kill_safe(tab, args);
 		tab[size - i] = (int)num;
 		i++;

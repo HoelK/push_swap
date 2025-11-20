@@ -6,11 +6,31 @@
 /*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 01:00:26 by hkeromne          #+#    #+#             */
-/*   Updated: 2025/11/20 01:21:54 by hkeromne         ###   ########.fr       */
+/*   Updated: 2025/11/20 06:35:49 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_isnum(char *s)
+{
+	int	i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	if (s[i] == '+' || s[i] == '-')
+		i++;
+	if (!s[i] || !ft_isdigit(s[i]))
+		return (0);
+	while (s[i])
+	{
+		if (!ft_isdigit(s[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	ft_abs(int num)
 {
