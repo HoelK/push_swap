@@ -6,7 +6,7 @@
 /*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 00:46:23 by hkeromne          #+#    #+#             */
-/*   Updated: 2025/11/20 06:48:08 by hkeromne         ###   ########.fr       */
+/*   Updated: 2025/11/20 06:56:50 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,9 @@ void	three_sort(t_allstacks *stacks)
 
 void	five_sort(t_allstacks *stacks)
 {
-	while (stacks->a.size > 2)
+	while (stacks->a.size > 3)
 		pb(stacks);
-	if (stacks->a.tab[0] < stacks->a.tab[1])
-		sa(stacks);
+	three_sort(stacks);
 	sort_a(stacks);
 	place_b_top(stacks);
 }
