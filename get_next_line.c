@@ -6,7 +6,7 @@
 /*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 22:13:54 by hkeromne          #+#    #+#             */
-/*   Updated: 2025/11/01 20:11:42 by hkeromne         ###   ########.fr       */
+/*   Updated: 2025/11/20 02:38:49 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ char	*fill_rest(char *buffer, char *rest)
 	return (rest);
 }
 
-//we assume buffer is malloced and needs to be free
 char	*extract_line(char *full_line)
 {
 	int		i;
