@@ -1,43 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_s.c                                     :+:      :+:    :+:   */
+/*   safety.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 00:51:53 by hkeromne          #+#    #+#             */
-/*   Updated: 2025/11/20 00:51:54 by hkeromne         ###   ########.fr       */
+/*   Created: 2025/11/20 01:13:24 by hkeromne          #+#    #+#             */
+/*   Updated: 2025/11/20 01:22:51 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(int *stack, int size)
+void	kill_prog(void)
 {
-	int	temp;
-
-	if (size < 2)
-		return ;
-	temp = stack[size - 1];
-	stack[size - 1] = stack[size - 2];
-	stack[size - 2] = temp;
+	write(1, "Error", 5);
+	exit(0);
 }
 
-void	sa(t_allstacks *stacks)
+void	kill_p(t_allstacks *stacks)
 {
-	swap(stacks->a.tab, stacks->a.size);
-	write(1, "sa\n", 3);
+	write(1, "Error", 5);
+	free(stacks->a.tab);
+	free(stacks->b.tab);
+	exit (0);
 }
 
-void	sb(t_allstacks *stacks)
+void	kill_safe(int *tab, char **to_free)
 {
-	swap(stacks->b.tab, stacks->b.size);
-	write(1, "sb\n", 3);
+	int	i;
+
+	i = 0;
+	while (to_free[i])
+		free(to_free[i++]);
+	free(to_free);
+	free(tab);
+	write(1, "Error", 5);
+	exit(0);
 }
 
-void	ss(t_allstacks *stacks)
+void	free_double_str(char **str)
 {
-	sa(stacks);
-	sb(stacks);
-	write(1, "ss\n", 3);
+	int	i;
+
+	i = 0;
+	while (str[i])
+		free(str[i++]);
+	free(str);
 }

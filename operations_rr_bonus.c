@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_rr.c                                    :+:      :+:    :+:   */
+/*   operations_rr_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 00:51:24 by hkeromne          #+#    #+#             */
-/*   Updated: 2025/11/20 02:19:47 by hkeromne         ###   ########.fr       */
+/*   Created: 2025/11/20 02:18:53 by hkeromne          #+#    #+#             */
+/*   Updated: 2025/11/20 02:18:54 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,15 @@ static void	reverse_rotate(t_stacks *stack)
 void	rra(t_allstacks *stacks)
 {
 	reverse_rotate(&stacks->a);
-	write(1, "rra\n", 4);
 }
 
 void	rrb(t_allstacks *stacks)
 {
 	reverse_rotate(&stacks->b);
-	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_allstacks *stacks)
 {
 	reverse_rotate(&stacks->a);
 	reverse_rotate(&stacks->b);
-	write(1, "rrr\n", 4);
 }

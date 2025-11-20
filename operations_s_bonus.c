@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   operations_s_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 00:58:38 by hkeromne          #+#    #+#             */
-/*   Updated: 2025/11/20 01:30:13 by hkeromne         ###   ########.fr       */
+/*   Created: 2025/11/20 02:18:39 by hkeromne          #+#    #+#             */
+/*   Updated: 2025/11/20 02:18:40 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	swap(int *stack, int size)
 {
-	t_allstacks	stacks;
+	int	temp;
 
-	stacks = parse_args(argc, argv);
-	stacks.a.tab = int_to_index(stacks.a.tab, stacks.a.size);
-	solve(&stacks);
-	free (stacks.a.tab);
-	free (stacks.b.tab);
+	if (size < 2)
+		return ;
+	temp = stack[size - 1];
+	stack[size - 1] = stack[size - 2];
+	stack[size - 2] = temp;
+}
+
+void	sa(t_allstacks *stacks)
+{
+	swap(stacks->a.tab, stacks->a.size);
+}
+
+void	sb(t_allstacks *stacks)
+{
+	swap(stacks->b.tab, stacks->b.size);
+}
+
+void	ss(t_allstacks *stacks)
+{
+	sa(stacks);
+	sb(stacks);
 }

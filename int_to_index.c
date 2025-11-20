@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   int_to_index.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/20 01:07:28 by hkeromne          #+#    #+#             */
+/*   Updated: 2025/11/20 01:07:29 by hkeromne         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	get_min(int *stack, int *new_stack, int size)
@@ -22,7 +34,6 @@ static int	get_min(int *stack, int *new_stack, int size)
 
 int	*int_to_index(int *stack, int size)
 {
-
 	int	i;
 	int	j;
 	int	min;

@@ -1,9 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   args.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/20 00:58:51 by hkeromne          #+#    #+#             */
+/*   Updated: 2025/11/20 01:20:15 by hkeromne         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	kill_prog()
+int	count_args(char **args)
 {
-	write(1, "Error", 5);
-	exit(0);
+	int	i;
+
+	i = 0;
+	while (args[i])
+		i++;
+	return (i);
 }
 
 char	**sort_args(int argc, char **argv)
@@ -46,14 +62,4 @@ char	**get_args(int argc, char **argv)
 	else
 		args = dup_args(argc, argv);
 	return (args);
-}
-
-int	count_args(char **args)
-{
-	int	i;
-
-	i = 0;
-	while (args[i])
-		i++;
-	return (i);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/20 01:02:24 by hkeromne          #+#    #+#             */
+/*   Updated: 2025/11/20 01:55:39 by hkeromne         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	check_tab(int *tab, int size)
@@ -21,27 +33,6 @@ int	check_tab(int *tab, int size)
 	return (1);
 }
 
-int	*args_to_int_tab(char **args)
-{
-	int		i;
-	long	num;
-	int		*tab;
-	int		size;
-
-	i = 0;
-	size = count_args(args) - 1;
-	tab = malloc(sizeof(int) * (size + 1));
-	while (args[i])
-	{
-		num = ft_atoi(args[i]);
-		if (num < INT_MIN || num > INT_MAX)
-			kill_safe(tab, args);
-		tab[size - i] = (int)num;
-		i++;
-	}
-	return (tab);
-}
-
 int	check_dup(t_allstacks *stacks)
 {
 	int	i;
@@ -63,19 +54,47 @@ int	check_dup(t_allstacks *stacks)
 	return (0);
 }
 
+int	*args_to_int_tab(char **args)
+{
+	int		i;
+	long	num;
+	int		*tab;
+	int		size;
+
+	i = 0;
+	size = count_args(args) - 1;
+	tab = malloc(sizeof(int) * (size + 1));
+	while (args[i])
+	{
+		num = ft_atoi(args[i]);
+		if (num < INT_MIN || num > INT_MAX)
+			kill_safe(tab, args);
+		tab[size - i] = (int)num;
+		i++;
+	}
+	return (tab);
+}
+
 t_allstacks	parse_args(int argc, char **argv)
 {
 	char		**args;
 	t_allstacks	stacks;
 
+	if (argc < 2)
+		exit (0);
 	args = get_args(argc, argv);
+	stacks.b.size = 0;
 	stacks.a.size = (count_args(args));
 	stacks.a.tab = args_to_int_tab(args);
-	stacks.b.tab = malloc(sizeof(int) * stacks.a.size);
-	stacks.b.size = 0;
-	if (stacks.a.size < 2 || ft_issorted(&stacks)
-		|| check_dup(&stacks))
+	if (check_dup(&stacks))
 		kill_safe(stacks.a.tab, args);
+	if (ft_issorted(&stacks) || stacks.a.size < 2)
+	{
+		free(stacks.a.tab);
+		free_double_str(args);
+		exit (0);
+	}
 	free_double_str(args);
+	stacks.b.tab = malloc(sizeof(int) * stacks.a.size);
 	return (stacks);
 }

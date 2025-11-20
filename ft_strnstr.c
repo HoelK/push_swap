@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 00:58:38 by hkeromne          #+#    #+#             */
-/*   Updated: 2025/11/20 01:30:13 by hkeromne         ###   ########.fr       */
+/*   Created: 2025/10/27 21:09:57 by hkeromne          #+#    #+#             */
+/*   Updated: 2025/11/19 21:41:47 by hkeromne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	t_allstacks	stacks;
+	size_t	i;
+	size_t	j;
 
-	stacks = parse_args(argc, argv);
-	stacks.a.tab = int_to_index(stacks.a.tab, stacks.a.size);
-	solve(&stacks);
-	free (stacks.a.tab);
-	free (stacks.b.tab);
+	i = 0;
+	j = 0;
+	if (!*little)
+		return ((char *)big);
+	if (!*big)
+		return (NULL);
+	while (i < len && big[i + ft_strlen(little) - 1])
+	{
+		while ((i + j) < len && big[i + j] && big[i + j] == little[j])
+		{
+			if (little[++j] == 0)
+				return (&((char *)big)[i]);
+		}
+		j = 0;
+		i++;
+	}
+	return (NULL);
 }

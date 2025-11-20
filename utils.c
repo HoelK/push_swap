@@ -1,4 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkeromne <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/20 01:00:26 by hkeromne          #+#    #+#             */
+/*   Updated: 2025/11/20 01:21:54 by hkeromne         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
+int	ft_abs(int num)
+{
+	if (num < 0)
+		return (num * -1);
+	return (num);
+}
+
+int	ft_strcontncmp(char *s1, char *s2, size_t size)
+{
+	size_t	i;
+
+	i = -1;
+	while (++i < size)
+	{
+		if (s1[i] != s2[i])
+			return (0);
+	}
+	return (1);
+}
 
 long	ft_atoi(char *s)
 {
@@ -25,11 +57,4 @@ long	ft_atoi(char *s)
 	if (sign)
 		return (-result);
 	return (result);
-}
-
-void    file_add(char *str)
-{
-        int fd = open("buffer", O_CREAT | O_WRONLY | O_TRUNC);
-        write(fd, str, 3);
-        write(fd, "\n", 1);
 }
